@@ -16,6 +16,7 @@ import {
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/attendance', label: 'Attendance', icon: CalendarDays },
+  { href: '/attendance-history', label: 'Attendance History', icon: CalendarDays },
   { href: '/bills', label: 'Bill Entry', icon: Receipt },
   { href: '/commission', label: 'Lube Commission', icon: DollarSign },
   { href: '/salary', label: 'Salary List', icon: Users },
