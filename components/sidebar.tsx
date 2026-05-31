@@ -11,6 +11,7 @@ import {
   LayoutDashboard,
   Fuel,
   Shield,
+  BookOpen,
 } from 'lucide-react';
 
 const navItems = [
@@ -19,6 +20,7 @@ const navItems = [
   { href: '/bills', label: 'Bill Entry', icon: Receipt },
   { href: '/commission', label: 'Lube Commission', icon: DollarSign },
   { href: '/salary', label: 'Salary List', icon: Users },
+  { href: '/guide', label: 'User Guide', icon: BookOpen },
   { href: '/admin', label: 'Admin Panel', icon: Shield },
 ];
 
