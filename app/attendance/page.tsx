@@ -271,11 +271,6 @@ export default function AttendancePage() {
 
         {/* Legend */}
         <div className="mb-6 space-y-4">
-          <div className="rounded-lg bg-primary/10 border border-primary/30 px-4 py-3">
-            <p className="text-sm text-foreground">
-              <span className="font-semibold">ℹ️ How it works:</span> By default, <span className="text-green-500 font-medium">all unmarked cells are considered PRESENT</span>. Click on a date cell to change it to <span className="text-red-500 font-medium">Absent (A)</span> or <span className="text-yellow-500 font-medium">Half Day (H)</span>. Click again to cycle through or clear.
-            </p>
-          </div>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded border bg-green-500/20 border-green-500/50">
