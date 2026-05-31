@@ -254,28 +254,32 @@ export default function AttendancePage() {
         </PageHeader>
 
         {/* Legend */}
-        <div className="mb-6 flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded border bg-green-500/20 border-green-500/50">
-              <Check className="h-3 w-3 text-green-500" />
-            </div>
-            <span className="text-sm text-muted-foreground">Present</span>
+        <div className="mb-6 space-y-4">
+          <div className="rounded-lg bg-primary/10 border border-primary/30 px-4 py-3">
+            <p className="text-sm text-foreground">
+              <span className="font-semibold">ℹ️ How it works:</span> Click on a date cell to mark attendance. First click = <span className="text-green-500 font-medium">Present (P)</span>, second click = <span className="text-red-500 font-medium">Absent (A)</span>, third click = <span className="text-yellow-500 font-medium">Half Day (H)</span>, fourth click = Clear. When attendance is given/marked, it&apos;s considered as <span className="font-semibold">PRESENT</span>.
+            </p>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded border bg-red-500/20 border-red-500/50">
-              <X className="h-3 w-3 text-red-500" />
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded border bg-green-500/20 border-green-500/50">
+                <Check className="h-3 w-3 text-green-500" />
+              </div>
+              <span className="text-sm text-muted-foreground">Present</span>
             </div>
-            <span className="text-sm text-muted-foreground">Absent</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded border bg-yellow-500/20 border-yellow-500/50">
-              <Clock className="h-3 w-3 text-yellow-500" />
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded border bg-red-500/20 border-red-500/50">
+                <X className="h-3 w-3 text-red-500" />
+              </div>
+              <span className="text-sm text-muted-foreground">Absent</span>
             </div>
-            <span className="text-sm text-muted-foreground">Half Day</span>
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded border bg-yellow-500/20 border-yellow-500/50">
+                <Clock className="h-3 w-3 text-yellow-500" />
+              </div>
+              <span className="text-sm text-muted-foreground">Half Day</span>
+            </div>
           </div>
-          <span className="text-xs text-muted-foreground ml-4">
-            Click on a cell to cycle through statuses
-          </span>
         </div>
 
         <Card className="bg-card border-border">
