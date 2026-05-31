@@ -95,6 +95,21 @@ export default function AttendancePage() {
   };
 
   const countStatus = (employeeId: string, status: AttendanceStatus) => {
+    if (status === 'present') {
+      // Count all unmarked cells as present
+      let count = 0;
+      for (let day = 1; day <= daysInMonth; day++) {
+        const key = getAttendanceKey(employeeId, day);
+        const cellStatus = attendance[key];
+        // If cell is empty/null/undefined OR explicitly marked as present
+        if (!cellStatus || cellStatus === 'present') {
+          count++;
+        }
+      }
+      return count;
+    }
+    
+    // For absent and half-day, count only explicitly marked ones
     let count = 0;
     for (let day = 1; day <= daysInMonth; day++) {
       const key = getAttendanceKey(employeeId, day);
@@ -139,7 +154,8 @@ export default function AttendancePage() {
       for (let day = 1; day <= daysInMonth; day++) {
         const key = getAttendanceKey(employee.id, day);
         const status = attendance[key];
-        row.push(status === 'present' ? 'P' : status === 'absent' ? 'A' : status === 'half-day' ? 'H' : '-');
+        // Empty/unmarked cells show as P (Present by default)
+        row.push(!status ? 'P' : status === 'present' ? 'P' : status === 'absent' ? 'A' : status === 'half-day' ? 'H' : '-');
       }
       row.push(countStatus(employee.id, 'present'));
       row.push(countStatus(employee.id, 'absent'));
@@ -257,7 +273,7 @@ export default function AttendancePage() {
         <div className="mb-6 space-y-4">
           <div className="rounded-lg bg-primary/10 border border-primary/30 px-4 py-3">
             <p className="text-sm text-foreground">
-              <span className="font-semibold">ℹ️ How it works:</span> Click on a date cell to mark attendance. First click = <span className="text-green-500 font-medium">Present (P)</span>, second click = <span className="text-red-500 font-medium">Absent (A)</span>, third click = <span className="text-yellow-500 font-medium">Half Day (H)</span>, fourth click = Clear. When attendance is given/marked, it&apos;s considered as <span className="font-semibold">PRESENT</span>.
+              <span className="font-semibold">ℹ️ How it works:</span> By default, <span className="text-green-500 font-medium">all unmarked cells are considered PRESENT</span>. Click on a date cell to change it to <span className="text-red-500 font-medium">Absent (A)</span> or <span className="text-yellow-500 font-medium">Half Day (H)</span>. Click again to cycle through or clear.
             </p>
           </div>
           <div className="flex items-center gap-6">
