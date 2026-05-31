@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+    --primary: 222 89% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 14% 95%;
+    --secondary-foreground: 222 84% 5%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 222 13% 91%;
+    --radius: 0.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 222 84% 5%;
+      --foreground: 0 0% 100%;
+      --primary: 217 91% 60%;
+      --primary-foreground: 222 84% 5%;
+      --secondary: 222 14% 20%;
+      --secondary-foreground: 0 0% 100%;
+      --accent: 217 91% 60%;
+      --accent-foreground: 222 84% 5%;
+      --border: 222 13% 30%;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
